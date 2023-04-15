@@ -8,7 +8,7 @@ library(viridis)
 library(paletteer)
 library(gcookbook) 
 
-#Abrimos los datos a graficar 
+#Abrimos los datos a graficar# 
 
 XenoPathways <-read_csv("../../../Desktop/Tesis/VariosTesisV1/GraficasCartel/XenoPathways.csv")
 TaxaClass <- read_csv("../../../Desktop/Tesis/VariosTesisV1/GraficasCartel/TaxaLevel-3.csv")
