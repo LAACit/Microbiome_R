@@ -1,25 +1,23 @@
 #Ahora lo que vamos a hacer es una lista de las especies unicas por sitio de muestreo 
 
-#librerias
+
 library(tidyverse)
 
-#Primero necesitamos importar la tabla donde qiim2 hizo la clasificación taxonomica a nivel 7
 
-dfSpp<- read.csv("./level-7.csv", row.names = 1)
+#Aqui se modifica el archivo que se quiere escojer 
 
-
-####### Para Pathways  ########
-
-#dfSpp <- read.csv( "./path_abun_unstrat_descrip.csv",sep="\t" , row.names = 2)
-
-#dfSpp <- dfSpp[,c(2:9)]
-
-######################################
-
-
-
-dfSpp<- as.data.frame(t(dfSpp)) 
-#SI SON PATHTWAYS COMENTAME 
+if(exists("Rutas") ==TRUE){
+  
+   Titulo <- "Rutas metabolicas"
+   dfSpp <- read.csv( "./PicrustrTablas/KO_pred_metagenome_unstrat_descrip.tsv",sep="\t", row.names = 1)
+   dfSpp <- dfSpp[,c(2:9)]
+}
+if(exists("Taxonomia") ==TRUE){
+  Titulo <- "Taxonomia"
+  
+  dfSpp<- read.csv("./Taxonomias/level-3.csv", row.names = 1)
+  dfSpp<- as.data.frame(t(dfSpp)) 
+}
 
 
 
@@ -42,7 +40,6 @@ rm(DzilamPuerto)
 rm(DzilamBocas )
 rm(ElPalmar)
 rm(dfSpp)
-
 
 
 #Ahora lo que vamos a hacer es convertir los valores numericos en presencia y asucencia con un 1 y 0 
@@ -135,9 +132,13 @@ rm(SppConservado)
 rm(SppAlterado)
 rm(Spp)
 
-write.csv(UnicosSppAlterado, "./UnicosSppAlterado.csv")
-write.csv(UnicosSppConcervado , "./UnicosSppConservado.csv")
-write.csv(UnicosSppDzilam, "./UnicosSppDzilam.csv")
-write.csv(UnicosSppElPalmar, "./UnicosSppElPalmar.csv")
+#Se guardan los resultados 
+
+#write.csv(UnicosSppAlterado, "./UnicosSppAlterado.csv")
+#write.csv(UnicosSppConcervado , "./UnicosSppConservado.csv")
+#write.csv(UnicosSppDzilam, "./UnicosSppDzilam.csv")
+#write.csv(UnicosSppElPalmar, "./UnicosSppElPalmar.csv")
+
+
 
 
