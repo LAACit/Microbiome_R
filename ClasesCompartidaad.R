@@ -11,7 +11,7 @@ upset(Nivel3PuntosCerost, nsets = 8, order.by = "freq",
       text.scale = c(1.3, 1.3, 1, 1, 2, 1))
 
 
-######################################################
+#######################################################
 
 Nivel3Sitio <- read.csv("../../../../Downloads/level-3Sitio.csv", row.names=1)
 Nivel3SitioCero <- Nivel3Sitio %>% mutate_all(~ifelse(. > 0, 1, .))
