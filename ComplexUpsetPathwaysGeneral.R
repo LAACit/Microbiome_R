@@ -5,7 +5,7 @@ library(ggplot2)
 
 #Abrimos los datos que ya tenemos 
 
-DatosPaway= read.csv("../../Tesis/Codigo/PICRUT2/PicrustDM6/pathways_out/path_abun_unstrat_descrip.csv", sep="\t" , row.names = 2)
+DatosPaway= read.csv("../../Tesis/Microbiome_R/PicrustrTablas/pred_metagenome_unstrat_descrip (1).tsv", sep="\t", row.names = 1 )
 
 #Visualizamos
 View(DatosPaway)
@@ -37,8 +37,10 @@ View(DatosPathways)
 
 #procedemos a hacer la grafica 
 
-ComplexUpset::upset(DatosPathways, sitios, name='Sitios',width_ratio=0.1,
+ComplexUpset::upset(DatosPathways, sitios, name='Sitios',width_ratio=0.1,  n_intersections= 'all',
   queries=list(
+    
+   
   upset_query( set='DZ14',fill='green'),
   upset_query(set='DZ15',fill='green'),
   
@@ -53,6 +55,6 @@ ComplexUpset::upset(DatosPathways, sitios, name='Sitios',width_ratio=0.1,
   
  
                     
-        ))+ ggtitle('Rutas metabolicas PICRUSt 2')
+        ))+ ggtitle('Pathways PICRUSt 2')
 
 

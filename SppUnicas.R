@@ -9,7 +9,7 @@ library(tidyverse)
 if(exists("Rutas") ==TRUE){
   
    Titulo <- "Rutas metabolicas"
-   dfSpp <- read.csv( "./PicrustrTablas/KO_pred_metagenome_unstrat_descrip.tsv",sep="\t", row.names = 1)
+   dfSpp <- read.csv( "./PICRUSTs2_Tablas/KO_pred_metagenome_unstrat_descrip.tsv",sep="\t", row.names = 1)
    dfSpp <- dfSpp[,c(2:9)]
 }
 if(exists("Taxonomia") ==TRUE){
@@ -18,9 +18,6 @@ if(exists("Taxonomia") ==TRUE){
   dfSpp<- read.csv("./Taxonomias/level-3.csv", row.names = 1)
   dfSpp<- as.data.frame(t(dfSpp)) 
 }
-
-
-
 
 
 #hacemos un nuevo df que tenga la suma de los puntos de muestreo por sitio 
@@ -134,10 +131,21 @@ rm(Spp)
 
 #Se guardan los resultados 
 
-#write.csv(UnicosSppAlterado, "./UnicosSppAlterado.csv")
-#write.csv(UnicosSppConcervado , "./UnicosSppConservado.csv")
-#write.csv(UnicosSppDzilam, "./UnicosSppDzilam.csv")
-#write.csv(UnicosSppElPalmar, "./UnicosSppElPalmar.csv")
+if(exists("Taxonomia")){
+write.csv(UnicosSppAlterado, "./TaxasUnicas/Condición_conservacion/Alterado/L_3UnicosAlterado.csv")
+write.csv(UnicosSppConcervado , "./TaxasUnicas/Condición_conservacion/Conservado/  L_3UnicosConservado.csv")
+write.csv(UnicosSppDzilam, "./TaxasUnicas/Region_Geografica/Dzilam/L_3UnicosDzilam.csv")
+write.csv(UnicosSppElPalmar, "./TaxasUnicas/Region_Geografica/Palmar/ L_3UnicosPalmar.csv")
+}
+
+if(exists("Rutas")){
+  write.csv(UnicosSppAlterado, "./KOUnicas/K_UnicosAlterados/KO_UnicosAlterado")
+  write.csv(UnicosSppConcervado , "./KOUnicas/K_UnicosConservado/KO_UnicosConservado.csv")
+  write.csv(UnicosSppDzilam, "./KOUnicas/K_RegionDzilam/KO_ UnicosDzilam.csv")
+  write.csv(UnicosSppElPalmar, "./KOUnicas/K_RegionPalmar/KO_ UnicosPalmar.csv")
+  
+}
+
 
 
 

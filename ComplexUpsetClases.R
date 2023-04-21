@@ -53,7 +53,7 @@ ComplexUpset::upset(Nivel3Puntos,Sitios, name='Clases',width_ratio=0.1, n_inters
        upset_query(set='PM15',fill='green')
     
      )
-) + ggtitle("Clases taxonomicas por sitio")
+) + ggtitle("Clases taxonomicas por punto de muestreo ")
 
 
 
