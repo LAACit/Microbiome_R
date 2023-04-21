@@ -91,7 +91,7 @@ SppAlterado <-dfEstatus %>% filter(dfEstatus$Alterados > 0 )
 ListaSppAlterado <- row.names(SppAlterado)
 ListaSppConservado <- row.names(SppConservado) 
 
-#Eliminamos el df 
+#Eliminamos el dfl
 
 
 

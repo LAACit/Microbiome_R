@@ -17,7 +17,7 @@ Rutas <-1
 Taxonomia <- 1
 
 
-#Ahora corre el programa que da los valores unicos 
+#Ahora corre el programa que da los valores unicos ñ
 
 source("./SppUnicas.R")
 

@@ -3,7 +3,7 @@ library(dplyr)
 library(ComplexUpset)
 library(ggplot2)
 
-#Abrimos los datos que ya tenemos 
+#Abrimos los datos que ya tenemos ñ
 
 DatosPaway= read.csv("../../Tesis/Microbiome_R/PicrustrTablas/pred_metagenome_unstrat_descrip (1).tsv", sep="\t", row.names = 1 )
 
