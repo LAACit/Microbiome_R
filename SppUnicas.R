@@ -101,6 +101,15 @@ ListaSppConservado <- row.names(SppConservado)
 UnicosSppConcervado <- setdiff(ListaSppConservado,ListaSppAlterado)
 UnicosSppAlterado <- setdiff(ListaSppAlterado,ListaSppConservado)
 
+
+
+#Tambien se puede hacer para aquellos que estan compartidas 
+
+Compartidos <- intersect(ListaSppConservado,ListaSppAlterado)
+Compartidos
+
+
+
 #Eliminamos Listas
 rm(ListaSppAlterado)
 rm(ListaSppConservado)
@@ -143,8 +152,9 @@ if(exists("Rutas")){
   write.csv(UnicosSppConcervado , "./KOUnicas/K_UnicosConservado/KO_UnicosConservado.csv")
   write.csv(UnicosSppDzilam, "./KOUnicas/K_RegionDzilam/KO_ UnicosDzilam.csv")
   write.csv(UnicosSppElPalmar, "./KOUnicas/K_RegionPalmar/KO_ UnicosPalmar.csv")
-  
+  write.csv(Compartidos, "./Core_Microbiome_R/K_compartidos.csv")
 }
+
 
 
 
