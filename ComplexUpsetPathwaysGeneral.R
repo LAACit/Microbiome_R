@@ -3,12 +3,13 @@ library(dplyr)
 library(ComplexUpset)
 library(ggplot2)
 
-#Abrimos los datos que ya tenemos ñ
+#Abrimos los datos que ya tenemos 
 
-DatosPaway= read.csv("../../Tesis/Microbiome_R/PicrustrTablas/pred_metagenome_unstrat_descrip (1).tsv", sep="\t", row.names = 1 )
+DatosPaway= read.csv("./PICRUSTs2_Tablas/pred_metagenome_unstrat_descrip_Mario.tsv", sep="\t")
 
-#Visualizamos
-View(DatosPaway)
+names <- list(DatosPaway[,1])
+rownames(DatosPaway)<- names 
+
 
 #Preparamos la tabla. 
 #primero hacemos que sean valores de 1 y 0 
@@ -18,6 +19,36 @@ DatosPawayCeros= DatosPaway %>% mutate_all(~ifelse(. > 0, 1, .))
 #Eliminamos la columna 2 y no quedamos con las descripciones 
 
 DatosPawayCeros= DatosPawayCeros[,2:9]
+
+DzilamBocas <- rowSums(DatosPawayCeros[,1:2])
+DzilamPuerto <- rowSums(DatosPawayCeros[,3:4])
+ElPalmar <- rowSums(DatosPawayCeros[,5:6])
+SisalPuerto<- rowSums(DatosPawayCeros[,7:8])
+
+
+dfSitiosLevel7 <- as.data.frame(cbind(SisalPuerto,ElPalmar,DzilamBocas,DzilamPuerto))
+
+Conservados <- rowSums(dfSitiosLevel7[,2:3])
+Alterados <- rowSums(dfSitiosLevel7[,c(1,4)])
+
+
+dfSitiosLevel7 <- as.data.frame(cbind(Conservados,Alterados))
+
+dfSitiosLevel7<- dfSitiosLevel7%>% mutate_all(~ifelse(. > 0, 1, .))
+sitios <- colnames(dfSitiosLevel7)
+
+dfSitiosLevel7[sitios] <- dfSitiosLevel7[sitios]==1
+
+ComplexUpset::upset(dfSitiosLevel7,sitios,name='Sitios',width_ratio=0.1,  n_intersections= 'all')+
+  ggtitle("Datos Origen Mario ")
+
+
+
+
+
+
+
+
 
 #Ahora los acemos booleanos 
 #Eliminamos el archivo original para ahorrar espacio y renombramos 

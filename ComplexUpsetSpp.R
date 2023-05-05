@@ -12,6 +12,7 @@ library(ggplot2)
 
 Rutas <-1 
 
+
 # Genera grafica de Taxonomias a nivel de Clase basado en resultado de QIIME2 
 
 Taxonomia <- 1
