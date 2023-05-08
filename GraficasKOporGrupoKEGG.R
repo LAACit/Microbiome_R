@@ -12,17 +12,22 @@ library(ggplot2)
 
 
 #Se abren los datos de rutas que tenemos predichas por el KEGG
-datos <- read.csv("./PICRUSTs2_Tablas/pred_metagenome_unstrat_descrip_Niveles.csv", sep='\t')
+datos<- read.csv("./PICRUSTs2_Tablas/pred_metagenome_unstrat_descrip_Niveles.csv", sep='\t')
+
+
+datos<- read.csv("../Codigo/PICRUT2/PICRUStMarioDatos28Abril23/P2/KEGG_pathways_out/pred_metagenome_unstrat_descrip_PATHS.csv", sep='\t')
+
 
 #Verificamos que esten bien 
 str(datos)
 
 
 
+
 #HAcemos iun aggregate, esto nos agrupara los datos de acurdo a categorias que estan en las columnas. En este caso se agrupa por Ruta 
 Datos_sumaRuta<-aggregate(datos[c("DZ14","DZ15","DZ24","DZ25","SIS24","SIS25","PM14","PM15")], by =list(datos$Ruta), FUN=sum)
 
-#Cambiamos el nombre de las columnas para facilidad de manejo de datos 
+#Cambamos el nombre de las columnas para facilidad de manejo de datos 
 colnames(Datos_sumaRuta) <- c("grupo","DZ14","DZ15","DZ24","DZ25","SIS24","SIS25","PM14","PM15")
 
 #Se hace lo mismo para agruparlos por PathwaysMaps
@@ -53,13 +58,13 @@ datos_largosMapa <- melt(Datos_sumaMapa, id.var="mapa",
 #Se grafican los resultados 
 
 
-q<- ggplot(datos_largosRuta, aes(fill=grupo, x=variable, y=abundancia ))+
+ggplot(datos_largosRuta, aes(fill=grupo, x=variable, y=abundancia ))+
   geom_bar(position="stack", stat="identity")+
   scale_fill_viridis_d(option="H")+
   ggtitle("K por Ruta")
 
 
-t<-ggplot(datos_largosMapa, aes(fill=mapa, x=variable, y=abundancia ))+
+ggplot(datos_largosMapa, aes(fill=mapa, x=variable, y=abundancia ))+
   geom_bar(position="stack", stat="identity")+
   scale_fill_viridis_d(option="turbo")+
   ggtitle("N| de K de acuerdo al  al que pertenecen")
