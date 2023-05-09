@@ -55,11 +55,11 @@ set_size = function(w, h, factor=1.5) {
 
 set_size(8, 3)
 
-ComplexUpset::upset(dfRegiones, Regiones, name = "Regiones", width_ratio=0.1, min_size=10, wrap=TRUE, set_sizes=FALSE) +
+ComplexUpset::upset(dfRegiones, Regiones, name = "Regiones", width_ratio=0.1, wrap=TRUE, set_sizes=FALSE) +
   
   ggtitle(paste("Región de estudio: ", Titulo)) +
   
-  ComplexUpset::upset(dfEstatus, Estatus, name = "Sitios",width_ratio=0.1, min_size=10, keep_empty_groups=TRUE, wrap=TRUE, set_sizes=FALSE) +
+  ComplexUpset::upset(dfEstatus, Estatus, name = "Sitios",width_ratio=0.1, keep_empty_groups=TRUE, wrap=TRUE, set_sizes=FALSE) +
   
   ggtitle(paste("Estatus de conservación : ", Titulo))
 

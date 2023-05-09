@@ -9,7 +9,7 @@ library(tidyverse)
 if(exists("Rutas") ==TRUE){
   
    Titulo <- "Rutas metabolicas"
-   dfSpp <- read.csv( "./PICRUSTs2_Tablas/KO_pred_metagenome_unstrat_descrip.tsv",sep="\t", row.names = 1)
+   dfSpp <- read.csv( "../Codigo/PICRUT2/PICRUStMarioDatos28Abril23/P2/KO_metagenome_out/pred_metagenome_unstrat_descrip.tsv",sep="\t", row.names = 1)
    dfSpp <- dfSpp[,c(2:9)]
    
 }

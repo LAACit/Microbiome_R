@@ -12,7 +12,7 @@ library(ggplot2)
 
 
 #Se abren los datos de rutas que tenemos predichas por el KEGG
-datos<- read.csv("./PICRUSTs2_Tablas/pred_metagenome_unstrat_descrip_Niveles.csv", sep='\t')
+datos<- read.csv("../Codigo/PICRUT2/PICRUStMarioDatos28Abril23/P2/KO_metagenome_out/pred_metagenome_contrib.tsv", sep='\t')
 
 
 datos<- read.csv("../Codigo/PICRUT2/PICRUStMarioDatos28Abril23/P2/KEGG_pathways_out/pred_metagenome_unstrat_descrip_PATHS.csv", sep='\t')
