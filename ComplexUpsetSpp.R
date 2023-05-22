@@ -25,6 +25,8 @@ source("./SppUnicas.R")
 #OJO. Se recomineda entrar a SppUnicas. R para ver qué hace y selecionar el nivel de trabajo requerido como  cambiar los archivos .csv de niveles taxonomicos o cambiar a archivos .csv de rutas metabolicas ya que estos son diferentes.
 
 
+
+
 #Prepraramos la grafica para sitios por Estatus de conservación 
 
 Estatus<-colnames(dfEstatus)
